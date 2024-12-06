@@ -13,11 +13,16 @@ I. Declare dependency
 ```
 pluginManagement {
     repositories {
+        //Set credential at local.properties
+        def localProps = new Properties()
+        file("local.properties").withInputStream {
+            localProps.load(it)
+        }
         maven {
           url "https://maven.pkg.github.com/dendrocyte/haylocation"
           credentials {
                 username = "dendrocyte"
-                password = "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"
+                password = localProps.getProperty("github.haylocation.token")
             }
         }
     }
@@ -25,15 +30,24 @@ pluginManagement {
 
 dependencyResolutionManagement {
     repositories {
+        //Set credential at local.properties
+        def localProps = new Properties()
+        file("local.properties").withInputStream {
+            localProps.load(it)
+        }
         maven {
           url "https://maven.pkg.github.com/dendrocyte/haylocation"
           credentials {
                 username = "dendrocyte"
-                password = "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"
+                password = localProps.getProperty("github.haylocation.token")
             }
         }
     }
 }
+```
+`local.properties`
+```
+github.haylocation.token=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
 ```
 `build.gradle`
 ```
