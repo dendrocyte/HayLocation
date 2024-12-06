@@ -8,7 +8,15 @@ This is a textView to ask locate permission, check GPS on and present location b
 
 ### Use
 ----
-I. Declare dependency
+This library is hosted on GitHub Packages, so you will need to generate a GitHub Personal Access Token (PAT) to download it.
+
+#### I. Generate a Token:
+1. Log in to your GitHub account.
+2. Go to [Token Settings Page](https://github.com/settings/tokens).
+3. Click **Generate new token (classic)** and select the **`read:packages`** permission.
+4. Save the generated token securely.
+   
+#### II. Declare dependency
 `setting.gradle`
 ```
 pluginManagement {
@@ -47,7 +55,7 @@ dependencyResolutionManagement {
 ```
 `local.properties`
 ```
-github.haylocation.token=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
+github.haylocation.token=<YOUR_PERSONAL_ACCESS_TOKEN>
 ```
 `build.gradle`
 ```
@@ -55,7 +63,7 @@ implementation 'com.dendrocyte:haylocation:1.0.5'
 ```
 
 
-II. Add Permission on AndroidManifest first
+#### III. Add Permission on AndroidManifest first
 ```
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
@@ -67,7 +75,7 @@ II. Add Permission on AndroidManifest first
 ```
 
 
-III. Declare this view on xml! That's it
+#### IV. Declare this view on xml! That's it
 ```
 <com.dendrocyte.haylocation.module.customView.UtilBtn
         android:id="@+id/btn_cuslocation"
