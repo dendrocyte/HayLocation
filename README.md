@@ -4,18 +4,17 @@
 This is a textView to ask locate permission, check GPS on and present location by itself
 
 ![presentation](./app/asset/glocation.gif)
-
-
+<br><br>
 ### Use
 ----
 This library is hosted on GitHub Packages, so you will need to generate a GitHub Personal Access Token (PAT) to download it.
-
+<br><br>
 #### I. Generate a Token:
 1. Log in to your GitHub account.
 2. Go to [Token Settings Page](https://github.com/settings/tokens).
 3. Click **Generate new token (classic)** and select the **`read:packages`** permission.
 4. Save the generated token securely.
-   
+
 #### II. Declare dependency
 `setting.gradle`
 ```
@@ -62,7 +61,6 @@ github.haylocation.token=<YOUR_PERSONAL_ACCESS_TOKEN>
 implementation 'com.dendrocyte:haylocation:1.0.5'
 ```
 
-
 #### III. Add Permission on AndroidManifest first
 ```
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
@@ -74,8 +72,7 @@ implementation 'com.dendrocyte:haylocation:1.0.5'
 </manifest>    
 ```
 
-
-#### IV. Declare this view on xml! That's it
+#### IV. Declare this View on xml! That is it!
 ```
 <com.dendrocyte.haylocation.module.customView.UtilBtn
         android:id="@+id/btn_cuslocation"
@@ -99,3 +96,43 @@ implementation 'com.dendrocyte:haylocation:1.0.5'
 | app:maxUpdateDelayMillis    | configure LocationRequest                                                 | 0L (default)                                                                              |
 | app:alwaysShow              | configure LocationSettingRequest                                          | true, false (default)                                                                     |
 
+<br><br>
+### Other declaration way
+Of course, apart from the XML declaration method, there are also delegator and worker usage methods.
+For more details, please refer to the [demo folder](https://github.com/dendrocyte/HayLocation/tree/main/app/src/main/java/com/dendrocyte/haylocation/demo)
+<br><br>
+#### (1) Delegator:
+If you prefer to use only methods or want to decouple from the view, you can use the delegator approach.
+
+```
+ /**
+* declare delegator before onCreate()
+* let ActivityResultLauncher register first
+*/
+  private val delegator = UtilDelegator(this)
+
+  override fun onStart() {
+        super.onStart()
+        with(delegator){
+            method = LocationUpdateUtil.LocationMethod.GetLastLocation
+            locationSuccessObserver = { location ->
+                binding.tVresult.text = "(${location.longitude}, ${location.latitude})"
+            }
+            locationErrObserver = { e ->
+                Log.e(TAG, "LocationError: $e")
+                binding.tVresult.text = "Loading Failed"
+            }
+            attach(baseContext).configure().start()
+        }
+
+    }
+
+    override fun onStop() {
+        super.onStop()
+        delegator.release()
+    }
+```
+
+#### (2) Worker:
+If you want to use WorkManager, you can adopt the worker approach.
+See `*Worker.class` at demo folder
