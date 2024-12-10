@@ -54,7 +54,7 @@ class UtilView @JvmOverloads constructor(
     //Activity Lifecycle Owner: context as? LifecycleOwner exist, state = INITIALIZED
     init {
 
-        //1.Get lifecycle owner
+        //1.Get activity's lifecycle owner
         val owner: LifecycleOwner? = context as? LifecycleOwner
 
         //2.Add activity/fragment observer

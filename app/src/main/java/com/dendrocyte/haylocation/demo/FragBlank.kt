@@ -47,18 +47,6 @@ public class FragBlank : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-
-
-
-
-//        AbsLocationBtn abs = view.findViewById(R.id.btn);
-//        abs.setStopEnv(AbsLocationBtn.STOP_AFTER_GOT).setLocationCallback(new AbsLocationListener() {
-//            @Override
-//            public void onAbsResult(LocationResult result) {
-//                Log.d(TAG, "lat: " + result.getLastLocation().getLatitude());
-//            }
-//        } );
-
     }
 
     override fun onDestroyView() {
