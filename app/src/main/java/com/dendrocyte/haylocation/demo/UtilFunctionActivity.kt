@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.dendrocyte.haylocation.module.man.UtilDelegator
 import com.dendrocyte.haylocation.module.pin.util.LocationUpdateUtil
+import cus.yiling.location.R
 import cus.yiling.location.databinding.ActivityUtilFunctionBinding
 
 /**
@@ -34,6 +35,12 @@ class UtilFunctionActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.iBBack.setOnClickListener { finish() }
+        binding.btnfrag.setOnClickListener {
+            /* method : permission invoked in fragment*/
+            supportFragmentManager.beginTransaction()
+                .add(R.id.container, FragFunction())
+                .addToBackStack(null).commit()
+        }
     }
 
     override fun onStart() {
