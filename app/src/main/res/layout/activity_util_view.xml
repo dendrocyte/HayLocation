@@ -19,26 +19,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="Here is Activity. Fetch location by UtilBtn:\nLocation ="
+        android:textAlignment="center"
+        android:layout_marginHorizontal="20dp"
+        android:text="Here is Activity. Fetch location by UtilBtn: "
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/iBBack"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iBBack" />
-
 
 
     <com.dendrocyte.haylocation.module.customView.UtilView
         android:id="@+id/btn_cuslocation"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/common_google_signin_btn_text_light_disabled"
         android:padding="20dp"
         android:text="loading"
-        app:locationMethod="getLastLocation"
         android:textAlignment="center"
-        android:background="@color/common_google_signin_btn_text_light_disabled"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:locationMethod="getLastLocation" />
 
 
     <TextView

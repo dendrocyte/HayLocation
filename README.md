@@ -1,21 +1,23 @@
 ### HayLocation
 ----
 
-This is a textView to ask locate permission, check GPS on and present location by itself
-
+This library handles permissions, GPS checks, and location requests, so you just get the result hassle-free.
+<br><br>
 ![presentation](./app/asset/glocation.gif)
 <br><br>
-### Use
+
+### Dependency
+
 ----
 This library is hosted on GitHub Packages, so you will need to generate a GitHub Personal Access Token (PAT) to download it.
-<br><br>
-#### I. Generate a Token:
+<br>
+#### Step I. Generate a Token:
 1. Log in to your GitHub account.
 2. Go to [Token Settings Page](https://github.com/settings/tokens).
 3. Click **Generate new token (classic)** and select the **`read:packages`** permission.
 4. Save the generated token securely.
 
-#### II. Declare dependency
+#### Step II. Declare dependency
 `setting.gradle`
 ```
 pluginManagement {
@@ -60,8 +62,12 @@ github.haylocation.token=<YOUR_PERSONAL_ACCESS_TOKEN>
 ```
 implementation 'com.dendrocyte:haylocation:1.0.5'
 ```
+<br><br>
 
-#### III. Add Permission on AndroidManifest first
+### How to Use
+
+----
+#### I. Add Permission on AndroidManifest first
 ```
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
@@ -72,7 +78,14 @@ implementation 'com.dendrocyte:haylocation:1.0.5'
 </manifest>    
 ```
 
-#### IV. Declare this View on xml! That is it!
+#### II. Choose approach based on your scenario
+Find the [demo folder](https://github.com/dendrocyte/HayLocation/tree/main/app/src/main/java/com/dendrocyte/haylocation/demo) to see in detail
+
+#### Approach 1: Declare this View on xml
+**Scenario:**
+- activity
+- default fragment when onCreate() in activity
+This is the most simplest way! Just declare the view on xml. That is it.  
 ```
 <com.dendrocyte.haylocation.module.customView.UtilBtn
         android:id="@+id/btn_cuslocation"
@@ -97,12 +110,12 @@ implementation 'com.dendrocyte:haylocation:1.0.5'
 | app:alwaysShow              | configure LocationSettingRequest                                          | true, false (default)                                                                     |
 
 <br><br>
-### Other declaration way
-Of course, apart from the XML declaration method, there are also delegator and worker usage methods.
-For more details, please refer to the [demo folder](https://github.com/dendrocyte/HayLocation/tree/main/app/src/main/java/com/dendrocyte/haylocation/demo)
-<br><br>
-#### (1) Delegator:
-If you prefer to use only methods or want to decouple from the view, you can use the delegator approach.
+#### Approach 2: Delegator
+**Scenario:**
+    - prefer to use only methods
+    - want to decouple from the view
+    - navigate Fragment by clicks when onResume at activity
+
 
 ```
  /**
@@ -133,6 +146,9 @@ If you prefer to use only methods or want to decouple from the view, you can use
     }
 ```
 
-#### (2) Worker:
-If you want to use WorkManager, you can adopt the worker approach.
-See `*Worker.class` at demo folder
+<br><br>
+#### Approach 3: Worker
+**Scenario:**
+- background task, such as WorkManager
+
+I write a sample how to deploy our methods in worker, see `*Worker.class` at demo folder
