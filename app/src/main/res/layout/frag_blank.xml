@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0ddddd">
+    android:background="@color/material_dynamic_neutral_variant80">
 
 
 
@@ -14,57 +14,66 @@
     <!-- FIXME: check those parameter customize by user is available to use  -->
     <!-- 若要客製化LocationRequest, 一定要設 intervalMillis  -->
     <TextView
+        android:id="@+id/title_cus_location_request"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="Fetch addresss with Custom Location Request,\naddress ="
-        android:id="@+id/title_cus_location_request"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.dendrocyte.haylocation.module.customView.UtilView
         android:id="@+id/btnCusLocationRequest"
         android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="loading"
-        app:locationMethod="getAddressUpdates"
-        app:intervalMillis="60000"
-        app:maxUpdates="10"
-        app:maxUpdateAgeMillis="-1"
-        app:minUpdateIntervalMillis="1000"
-        app:minUpdateDistanceMeters="0.0"
-        app:waitForAccurateLocation="true"
-        app:granularity="permissionLevel"
-        app:priority="highAccuracy"
-        app:durationMillis="60000000"
-        app:maxUpdateDelayMillis="100"
-        android:textAlignment="center"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:background="@color/common_google_signin_btn_text_light_disabled"
+        android:text="loading"
+        android:padding="20dp"
+        android:textAlignment="center"
+        app:durationMillis="60000000"
+        app:granularity="permissionLevel"
+        app:intervalMillis="60000"
+        app:layout_constraintEnd_toEndOf="@+id/title_cus_location_request"
         app:layout_constraintStart_toStartOf="@id/title_cus_location_request"
         app:layout_constraintTop_toBottomOf="@id/title_cus_location_request"
-        />
-
+        app:locationMethod="getAddressUpdates"
+        app:maxUpdateAgeMillis="-1"
+        app:maxUpdateDelayMillis="100"
+        app:maxUpdates="10"
+        app:minUpdateDistanceMeters="0.0"
+        app:minUpdateIntervalMillis="1000"
+        app:priority="highAccuracy"
+        app:waitForAccurateLocation="true" />
 
 
     <TextView
+        android:id="@+id/title_cus_location_setting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:text="Fetch address with Custom Location Setting,\naddress ="
-        android:id="@+id/title_cus_location_setting"
-        app:layout_constraintStart_toStartOf="@+id/btnCusLocationRequest"
-        app:layout_constraintTop_toBottomOf="@id/btnCusLocationRequest"
-        />
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/title_cus_location_request"
+        app:layout_constraintStart_toStartOf="@+id/title_cus_location_request"
+        app:layout_constraintTop_toBottomOf="@id/btnCusLocationRequest" />
+
     <com.dendrocyte.haylocation.module.customView.UtilView
         android:id="@+id/btnCusLocationSetting"
         android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="loading"
-        app:locationMethod="getAddressUpdates"
-        app:alwaysShow="false"
-        android:textAlignment="center"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:background="@color/common_google_signin_btn_text_light_disabled"
+        android:text="loading"
+        android:padding="20dp"
+        android:textAlignment="center"
+        app:alwaysShow="false"
+        app:layout_constraintEnd_toEndOf="@+id/title_cus_location_setting"
         app:layout_constraintStart_toStartOf="@+id/title_cus_location_setting"
         app:layout_constraintTop_toBottomOf="@+id/title_cus_location_setting"
-         />
+        app:locationMethod="getAddressUpdates" />
 </androidx.constraintlayout.widget.ConstraintLayout>

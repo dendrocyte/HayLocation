@@ -18,17 +18,21 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:text="Here is Activity. Fetch location by UtilBtn:\nLocation ="
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/iBBack"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iBBack" />
 
 
-    <!-- FIXME: check this btn feature again when frag at the same time  -->
 
     <com.dendrocyte.haylocation.module.customView.UtilView
         android:id="@+id/btn_cuslocation"
         android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
         android:text="loading"
         app:locationMethod="getLastLocation"
         android:textAlignment="center"
@@ -42,16 +46,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
-        android:text="Here is Fragment."
+        android:textSize="20sp"
+        android:text="Here is a Default Fragment"
         app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="@id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="400dp"
         android:layout_height="400dp"
-        app:layout_constraintTop_toBottomOf="@+id/textview1"
+        app:layout_constraintEnd_toEndOf="@+id/textview1"
         app:layout_constraintStart_toStartOf="@+id/textview1"
-         />
+        app:layout_constraintTop_toBottomOf="@+id/textview1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
