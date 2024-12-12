@@ -3,7 +3,7 @@
 
 This library handles permissions, GPS checks, and location requests, so you just get the result hassle-free.
 <br><br>
-![presentation](./app/asset/glocation.gif)
+![presentation](./app/asset/haylocation.gif)
 <br><br>
 
 ### Dependency
