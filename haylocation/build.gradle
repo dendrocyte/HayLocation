@@ -11,7 +11,7 @@ android {
         minSdk 24
         targetSdk 34
         versionCode 1
-        versionName "1.0.4"
+        versionName "1.0.6"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -68,8 +68,8 @@ dependencies {
 
 // Publish
 ext{
-    //NOTE: Update Publish Version here and  Publish Note at CHANGELOG.md
-    publishVersion="1.0.5"
+    //NOTE: Update Publish Version here, Publish Note at CHANGELOG.md, new version at README.md
+    publishVersion="1.0.6"
     publishDesc="A button to fetch and present location by itself. " +
             "Also provide a delegator to fetch location with view-decoupling. " +
             "See full documentation and changelog at: https://github.com/dendrocyte/HayLocation"

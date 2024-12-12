@@ -60,7 +60,7 @@ github.haylocation.token=<YOUR_PERSONAL_ACCESS_TOKEN>
 ```
 `build.gradle`
 ```
-implementation 'com.dendrocyte:haylocation:1.0.5'
+implementation 'com.dendrocyte:haylocation:1.0.6'
 ```
 <br><br>
 
