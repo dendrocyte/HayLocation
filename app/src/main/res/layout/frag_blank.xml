@@ -55,7 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:text="Fetch address with Custom Location Setting,\naddress ="
+        android:text="Fetch address with Custom Location Setting, address ="
         android:textAlignment="center"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/title_cus_location_request"
